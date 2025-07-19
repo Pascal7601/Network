@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.contrib.auth import get_user_model
 from . admin import MyBackend
-from django.contrib.auth import login
+from rest_framework.authtoken.models import Token
 # Create your views here.
 
 User = get_user_model()
@@ -38,7 +38,7 @@ def register(request):
 
 
 @api_view(['POST'])
-def login_view(request):
+def login(request):
   data = request.data
   email = data.get('email')
   password = data.get('password')
@@ -48,8 +48,8 @@ def login_view(request):
   
   try:
     user = MyBackend().authenticate(request, email=email, password=password)
-    if user:
-      login(request, user)
+    token = Token.objects.create(user=user)
+    print(token)
     return Response({"message": "succesfully logged in"})
   
   except Exception as e:
