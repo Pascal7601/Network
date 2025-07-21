@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Poppins;
+}
+
+.app-container {
+  display: flex;
+}
+.sidebar {
+  height: 100vh;
+  /* background-color: #007bff */
+  width: 200px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 10px;
+  border-right: 1px solid gray;
+  
+  div {
+    padding-left: 10px;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+  #sidebar-icons {
+    font-size: 30px;
+  }
+}
+
+.main-content {
+  margin-left: 220px;
+  padding: 20px;
+  flex: 1;
+
+  .post-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    border-bottom: 1px solid gray;
+    cursor: pointer;
+
+    .profile-icon {
+      font-size: 30px;
+    }
+  }
+}
+.hambugger-menu {
+    position: absolute;
+    left: 200px;
+    top: 20px;
+    font-size: larger;
+    cursor: pointer;
+  }

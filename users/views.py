@@ -28,7 +28,8 @@ def register(request):
     if email and password:
       user = User.objects.create_user(
         email=email,
-        password=password
+        password=password,
+        username=username
       )
       user.save()
 
@@ -48,9 +49,8 @@ def login(request):
   
   try:
     user = MyBackend().authenticate(request, email=email, password=password)
-    token = Token.objects.create(user=user)
-    print(token)
-    return Response({"message": "succesfully logged in"})
+    token, created = Token.objects.get_or_create(user=user)
+    return Response({"message": "succesfully logged in", "token": f"{token}"})
   
   except Exception as e:
     return Response({"message": "error loging in", "error": f"{e}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
