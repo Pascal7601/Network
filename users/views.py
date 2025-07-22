@@ -49,6 +49,8 @@ def login(request):
   
   try:
     user = MyBackend().authenticate(request, email=email, password=password)
+    if not user:
+      return Response({"message": "user does not exist"}, status=status.HTTP_400_BAD_REQUEST)
     token, created = Token.objects.get_or_create(user=user)
     return Response({"message": "succesfully logged in", "token": f"{token}"})
   

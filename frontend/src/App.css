@@ -18,17 +18,23 @@
   color: white;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding-top: 10px;
+  align-items: center;
+  gap: 20px;
+  padding-top: 20px;
   border-right: 1px solid gray;
   
   div {
-    padding-left: 10px;
     color: black;
     display: flex;
     align-items: center;
     gap: 5px;
     cursor: pointer;
+    border-radius: 8px;
+    padding: 3px 7px;
+  }
+
+  div:hover {
+    background-color: gray;
   }
   #sidebar-icons {
     font-size: 30px;
