@@ -4,7 +4,8 @@ import { useNavigate } from "react-router";
 
 function SignIn({ setToken }) {
   const [formData, setFormData] = useState({email: '', password: ''});
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  
   const handleInputChange = (e) => {
     const {name, value} = e.target;
     console.log(name, value)

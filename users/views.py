@@ -5,6 +5,11 @@ from rest_framework import status
 from django.contrib.auth import get_user_model
 from . admin import MyBackend
 from rest_framework.authtoken.models import Token
+from rest_framework.permissions import IsAuthenticated
+from posts.permissions import IsOwnerOrReadOnly
+from rest_framework import generics
+from . serializers import UserSerializer
+from auth import AppAuthentication
 # Create your views here.
 
 User = get_user_model()
@@ -58,3 +63,15 @@ def login(request):
     return Response({"message": "error loging in", "error": f"{e}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
   
 
+class ProfileView(generics.RetrieveUpdateAPIView):
+
+  queryset = User.objects.all()
+  serializer_class = UserSerializer
+  permission_classes = [IsAuthenticated]
+  authentication_classes = [AppAuthentication]
+
+  def get_object(self):
+    return self.request.user
+  
+  def perform_update(self, serializer):
+    serializer.save()

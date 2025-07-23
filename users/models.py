@@ -42,7 +42,7 @@ class User(AbstractUser):
   last_name = models.CharField(max_length=100)
   bio = models.TextField(blank=True)
   is_banned = models.BooleanField(default=False)
-  profile_pic = models.ImageField(upload_to='users/', default='default.jpg')
+  profile_pic = models.ImageField(upload_to='users/', default='users/default.jpg')
 
   # self referential reletionship
   followers = models.ManyToManyField(

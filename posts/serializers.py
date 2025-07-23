@@ -1,18 +1,17 @@
 from rest_framework import serializers
 from . models import Post, Comment, Like
+from users.serializers import UserSerializer
 
 class PostSerializer(serializers.ModelSerializer):
-  user = serializers.SlugRelatedField(slug_field='username', read_only=True)
-
+  user = UserSerializer(read_only=True)
 
   class Meta:
     model = Post
-    fields = ['id', 'content', 'created_at', 'user']
+    fields = ['id', 'content', 'created_at', 'user', 'image']
 
 
 class CommentSerializer(serializers.ModelSerializer):
-  user = serializers.SlugRelatedField(slug_field='username', read_only=True)
-  post = serializers.SlugRelatedField(slug_field='content', read_only=True)
+  user = UserSerializer(read_only=True)
 
   class Meta:
     model = Comment
