@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import Sidebar from './Components/Sidebar'
+import NavBar from './Components/NavBar'
 import Home from './Components/Home'
 import { Routes, Route, Navigate } from 'react-router'
 import SignIn from './Components/SignIn'
@@ -21,7 +21,7 @@ function App() {
 
   return (
     <div className='app-container'>
-      {token && <Sidebar />}
+      <NavBar />
       <div className='main-content'>
         <Routes>
           <Route path='/' element={token ? <Home token={token}/> : < Navigate to='/login' />} />

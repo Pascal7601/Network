@@ -6,7 +6,7 @@ from django.contrib.auth import get_user_model
 from . admin import MyBackend
 from rest_framework.authtoken.models import Token
 from rest_framework.permissions import IsAuthenticated
-from posts.permissions import IsOwnerOrReadOnly
+from products.permissions import IsOwnerOrReadOnly
 from rest_framework import generics
 from . serializers import UserSerializer
 from auth import AppAuthentication

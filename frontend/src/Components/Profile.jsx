@@ -15,6 +15,7 @@ function Profile({ token }) {
     .then(data => setUser(data))
     .catch(e => console.error('error fetching profile', e))
   }, [token])
+  
   return (
     <div className="profile-page">
       <div className="bio-page">
@@ -28,7 +29,7 @@ function Profile({ token }) {
       <div className="profile-body">
         <div className="profile-headings">
           <div>
-            <p>Posts</p>
+            <p>Products</p>
           </div>
           <div>
             <p>Bookmarks</p>

@@ -5,44 +5,40 @@
   font-family: Poppins;
 }
 
-.app-container {
-  display: flex;
-}
-.sidebar {
-  height: 100vh;
-  /* background-color: #007bff */
-  width: 200px;
-  position: fixed;
-  left: 0;
-  top: 0;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-  gap: 20px;
-  padding-top: 20px;
-  border-right: 1px solid gray;
-  
-  div {
-    color: black;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    cursor: pointer;
-    border-radius: 8px;
-    padding: 3px 7px;
-  }
 
-  div:hover {
-    background-color: rgb(221, 219, 219);
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e6e6e6;
+  padding: 0 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  
+  .navbar-link {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 12px;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
-  #sidebar-icons {
-    font-size: 30px;
+  .navbar-link:hover {
+    text-decoration: underline;
   }
 }
 
 .main-content {
-  margin-left: 220px;
   padding: 20px;
   flex: 1;
 
@@ -65,8 +61,74 @@
     }
   }
 }
-.post-card:hover {
-    background-color: #F7F9F9;
+.main-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+  margin-top: 60px;
+  position: relative;
+
+  .product-card {
+    background-color:  #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+}
+
+#float-plus-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: #fff;
+  background-color: #1DA1F2;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.3s ease, background-colour 0.3s ease;
+}
+
+#float-plus-icon:hover {
+  background-color: #0d8ddb;
+  transform: scale(1.1);
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.product-price {
+  display: flex;
+  margin-top: 15px;
+  align-items: center;
+  justify-content: space-between;
+
+  p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  button {
+    background-color: #333333;
+    color: #fff;;
+    outline: none;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+  }
 }
 .hambugger-menu {
     position: absolute;
@@ -89,8 +151,14 @@
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   }
+.profile-page {
+  margin-top: 60px;
+}
 .bio-page {
   padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 #first-name {
   font-size: 20px;
@@ -102,7 +170,7 @@
   border-bottom: 1px solid gray;
 
   div {
-    padding: 10px 20px 10px 0px;
+    padding: 10px;
     cursor: pointer;
   }
   div:hover {
@@ -137,4 +205,129 @@
   border-radius: 16px;
   object-fit: cover;
   margin-top: 10px;
+}
+/* Full-screen background container */
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  /* background: #f7f9f9; Light background like Twitter */
+  font-family: 'Poppins', sans-serif;
+}
+
+/* The form card */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-form div {
+  width: 100%;
+}
+
+/* Inputs */
+.login-form input {
+  width: 90%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-form input:focus {
+  border-color: #1DA1F2;
+  box-shadow: 0 0 8px rgba(29, 161, 242, 0.3);
+}
+
+/* Submit button */
+#submit-login-btn {
+  padding: 12px;
+  background: #1DA1F2;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#submit-login-btn:hover {
+  background: #0d8ddb;
+  transform: scale(1.03);
+}
+
+/* displays when the add product icon is pressed */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.add-product-box {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  gap: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  animation: scaleUp 0.3s ease-in-out;
+}
+.add-product-box input,
+.add-product-box select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+@keyframes scaleUp {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.submit-btn {
+  background-color: #1DA1F2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.cancel-btn {
+  background-color: rgb(248, 20, 20);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
 }
